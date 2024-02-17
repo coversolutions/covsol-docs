@@ -4,7 +4,7 @@
 
 <instance-profile id="hi"
                  name="Help Instance"
-                 start-page="Default-topic.md">
+                 start-page="Empty-MD-Topic.md">
 
-    <toc-element topic="Default-topic.md"/>
+    <toc-element topic="Empty-MD-Topic.md"/>
 </instance-profile>
