@@ -31,7 +31,7 @@ Android & iOS: Your tasks will be displayed in a list format on the main screen.
 
 ## 4. Updating a Task
 Web: Click on a task to edit its details. Save once done.  
-Android & iOS: Tap on a task to open its details. Make your edits and tap "Save" or "Done".  
+Android & iOS: Tap on a task to open its [details](Task-Form.md). Make your edits and tap "Save" or "Done".  
 
 ## 5. Deleting a Task
 Web: Click the "Delete" button next to the task you want to remove.  
