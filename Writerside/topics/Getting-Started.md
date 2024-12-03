@@ -1,8 +1,7 @@
-# Overview
-Welcome to the Cover Solutions Planner Application, your simple and intuitive solution to manage your tasks. Whether you're using our web, Android, or iOS versions, this guide will walk you through the functionalities and features of our application.
+# Getting Started
 
 ## Table of Contents
-1. Getting Started
+1. Versions
 2. Adding a Task
 3. Viewing Tasks
 4. Updating a Task
@@ -10,7 +9,7 @@ Welcome to the Cover Solutions Planner Application, your simple and intuitive so
 6. Troubleshooting
 7. Contact & Support
 
-## 1. Getting Started
+## 1. Versions
 ### Web Version
 Access: Open your preferred browser and navigate to http://planner.coversolutions.app.  
 Requirements: A modern browser such as Chrome, Firefox, Edge, or Safari.
