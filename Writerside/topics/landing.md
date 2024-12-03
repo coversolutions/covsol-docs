@@ -1,4 +1,4 @@
 # About Landing
 
-- [PL Documentation](pl/){nullable="true"}
-- [MA Documentation](ma/){nullable="true"}
+- <a href="pl/" nullable="true">Planner</a>
+- <a href="ma/" nullable="true">Maintenance</a>
