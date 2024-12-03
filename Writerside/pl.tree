@@ -2,11 +2,11 @@
 <!DOCTYPE instance-profile
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
-<instance-profile id="p"
+<instance-profile id="pl"
                  name="Planner"
                  start-page="Overview.md">
 
-    <toc-element topic="Getting-Started.md"/>
     <toc-element topic="Overview.md"/>
+    <toc-element topic="Getting-Started.md"/>
     <toc-element topic="Task-Form.md"/>
 </instance-profile>

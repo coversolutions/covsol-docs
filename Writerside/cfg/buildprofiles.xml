@@ -3,7 +3,12 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <variables></variables>
-    <build-profile instance="p">
+    <build-profile instance="pl">
+        <variables>
+            <noindex-content>true</noindex-content>
+        </variables>
+    </build-profile>
+    <build-profile instance="ma">
         <variables>
             <noindex-content>true</noindex-content>
         </variables>
