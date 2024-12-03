@@ -14,9 +14,9 @@ env:
   PL_INSTANCE: Writerside/pl
   MA_INSTANCE: Writerside/ma
   LANDING_INSTANCE: Writerside/landing
-  PL_ARTIFACT: pl-webHelpP2-all.zip
-  MA_ARTIFACT: ma-webHelpP2-all.zip
-  LANDING_ARTIFACT: landing-webHelpP2-all.zip
+  PL_ARTIFACT: webHelpPL2-all.zip
+  MA_ARTIFACT: webHelpMA2-all.zip
+  LANDING_ARTIFACT: webHelpLANDING2-all.zip
 
 jobs:
   build:
