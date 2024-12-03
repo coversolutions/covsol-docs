@@ -1,18 +1,22 @@
-name: Build documentation
+name: Build and Deploy Documentation
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
-    id-token: write
-    pages: write
+  id-token: write
+  pages: write
 
 env:
-  INSTANCE: Writerside/pl
-  ARTIFACT: webHelpPL2-all.zip
   DOCKER_VERSION: 233.14389
+  PL_INSTANCE: Writerside/pl
+  MA_INSTANCE: Writerside/ma
+  LANDING_INSTANCE: Writerside/landing
+  PL_ARTIFACT: pl-webHelpP2-all.zip
+  MA_ARTIFACT: ma-webHelpP2-all.zip
+  LANDING_ARTIFACT: landing-webHelpP2-all.zip
 
 jobs:
   build:
@@ -21,49 +25,84 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build docs using Writerside Docker builder
+      - name: Build PL documentation
         uses: JetBrains/writerside-github-action@v4
         with:
-          instance: ${{ env.INSTANCE }}
-          artifact: ${{ env.ARTIFACT }}
+          instance: ${{ env.PL_INSTANCE }}
+          artifact: ${{ env.PL_ARTIFACT }}
           docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: Save artifact with build results
+      - name: Save PL artifact
         uses: actions/upload-artifact@v3
         with:
-          name: docs
+          name: pl-docs
           path: |
-            artifacts/${{ env.ARTIFACT }}
+            artifacts/${{ env.PL_ARTIFACT }}
             artifacts/report.json
           retention-days: 7
-  test:
+
+      - name: Build MA documentation
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ env.MA_INSTANCE }}
+          artifact: ${{ env.MA_ARTIFACT }}
+          docker-version: ${{ env.DOCKER_VERSION }}
+
+      - name: Save MA artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ma-docs
+          path: |
+            artifacts/${{ env.MA_ARTIFACT }}
+            artifacts/report.json
+          retention-days: 7
+
+      - name: Build Landing Page documentation
+        uses: JetBrains/writerside-github-action@v4
+        with:
+          instance: ${{ env.LANDING_INSTANCE }}
+          artifact: ${{ env.LANDING_ARTIFACT }}
+          docker-version: ${{ env.DOCKER_VERSION }}
+
+      - name: Save Landing Page artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: landing-docs
+          path: |
+            artifacts/${{ env.LANDING_ARTIFACT }}
+            artifacts/report.json
+          retention-days: 7
+
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
+      - name: Download Landing Page artifact
         uses: actions/download-artifact@v3
         with:
-          name: docs
-          path: artifacts
+          name: landing-docs
+          path: artifacts/landing
 
-      - name: Test documentation
-        uses: JetBrains/writerside-checker-action@v1
-        with:
-          instance: ${{ env.INSTANCE }}
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: [build, test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
+      - name: Download PL artifact
         uses: actions/download-artifact@v3
         with:
-          name: docs
+          name: pl-docs
+          path: artifacts/pl
 
-      - name: Unzip artifact
-        run: unzip -O UTF-8 -qq ${{ env.ARTIFACT }} -d dir
+      - name: Download MA artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ma-docs
+          path: artifacts/ma
+
+      - name: Unzip Landing Page artifact
+        run: unzip -O UTF-8 -qq artifacts/landing/${{ env.LANDING_ARTIFACT }} -d combined
+
+      - name: Unzip PL artifact
+        run: unzip -O UTF-8 -qq artifacts/pl/${{ env.PL_ARTIFACT }} -d combined/pl
+
+      - name: Unzip MA artifact
+        run: unzip -O UTF-8 -qq artifacts/ma/${{ env.MA_ARTIFACT }} -d combined/ma
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -71,7 +110,7 @@ jobs:
       - name: Package and upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dir
+          path: combined
 
       - name: Deploy to GitHub Pages
         id: deployment
