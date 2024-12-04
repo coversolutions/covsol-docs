@@ -1,5 +1,4 @@
 # About Landing
 
-<a href="Overview.md" nullable="true">Planner</a>
-
-<a href="Maintenance.md" nullable="true">Maintenance</a>
+- [PL Documentation](https://docs.cover-solutions.co.uk/pl/)
+- [MA Documentation](https://docs.cover-solutions.co.uk/ma/)
