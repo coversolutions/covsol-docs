@@ -4,9 +4,9 @@
 
 <instance-profile id="pl"
                  name="Planner"
-                 start-page="Overview.md">
+                 start-page="Planner-Overview.md">
 
-    <toc-element topic="Overview.md"/>
+    <toc-element topic="Planner-Overview.md"/>
     <toc-element topic="Getting-Started.md"/>
     <toc-element topic="Task-Form.md"/>
 </instance-profile>

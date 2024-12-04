@@ -4,7 +4,7 @@
 
 <instance-profile id="ma"
                  name="Maintenance"
-                 start-page="Maintenance.md">
+                 start-page="Maintenance-Overview.md">
 
-    <toc-element topic="Maintenance.md"/>
+    <toc-element topic="Maintenance-Overview.md"/>
 </instance-profile>

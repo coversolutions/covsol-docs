@@ -1,4 +1,4 @@
-# Overview
+#Planner Overview
 
 Welcome to the Cover Solutions Planner Application, your simple and intuitive solution to manage your tasks. Whether you're using our web, Android, or iOS versions, this guide will walk you through the functionalities and features of our application.
 
