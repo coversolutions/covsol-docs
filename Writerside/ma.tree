@@ -7,4 +7,5 @@
                  start-page="Maintenance-Overview.md">
 
     <toc-element topic="Maintenance-Overview.md"/>
+    <toc-element topic="Work-Order-Form.md"/>
 </instance-profile>
